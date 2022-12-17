@@ -1,0 +1,22 @@
+.maindatabarcode {
+  height: 2.5cm;
+}
+.seconddatabarcode {
+  height: 1cm;
+}
+.allinline {
+  width: 5cm;
+  display: inline-block;
+  text-align: start;
+}
+
+.title {
+  height: 0.75cm;
+}
+.des {
+  height: 0.75cm;
+}
+.price {
+  height: 1cm;
+  font-size: 0.65cm;
+}

@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import PrintingContent from './components/PrintingContent';
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
         >
           Learn React
         </a>
+        
       </header>
+      <PrintingContent></PrintingContent>
     </div>
   );
 }
