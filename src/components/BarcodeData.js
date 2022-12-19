@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./BarcodeData.module.css";
 const BarcodeData = (props) => {
   return (
-    <div className={classes.allinline}>
+    <div className={classes.allinline} onClick={props.onDeleteHandler.bind(this,props.itemId)}>
       <div className={classes.maindatabarcode}>
         <div className={classes.title}>{props.title}</div>
         <div className={classes.des}>{props.des}</div>
