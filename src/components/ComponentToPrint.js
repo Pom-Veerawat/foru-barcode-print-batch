@@ -20,7 +20,7 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
           title={item.title}
           des={item.des}
           price={item.price}
-          barcode={item.barcode}
+          barcode={item.barcode_num}
           itemId ={item.pid}
           onDeleteHandler ={onClickDelete}
         />

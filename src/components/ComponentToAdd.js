@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import BarcodeData from "./BarcodeData";
+
 const ComponentToAdd = (props) => {
   const [error, setError] = useState();
   const [inputText, setInputText] = useState("");
@@ -63,7 +63,7 @@ const ComponentToAdd = (props) => {
       .then((result) => {
         setApiCallItem({ ...result });
 
-        console.log(result);
+        //console.log(result);
         /* setCusName(result.cusName);
         setCusLastName(result.cusLastName);
         setCusAvatarLink(result.cusAvatarLink);
@@ -77,7 +77,7 @@ const ComponentToAdd = (props) => {
         /*  setIsLoading(false); */
       })
       .catch((error) => console.log("error", error));
-    console.log("finish call apiload");
+    //console.log("finish call apiload");
   }
   const onClickDelete = (pid, event) => {
     //console.log(pid);

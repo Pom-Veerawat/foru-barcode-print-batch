@@ -46,16 +46,18 @@ const PrintingContent = () => {
     const allItem = [...barcodes];
     allItem.push(item);
     setBarcodes(allItem);
-
+    //console.log(allItem);
   }
 
   const onDeleteItem = (pid, event) => {
     let ans = window.confirm("คุณต้องการที่จะลบรายการนี้หรือไม่ " + pid + " ?");
     let loadedBarcodes = [];
-    if (ans) {
+    console.log(ans);
+    if (ans===true) {
       loadedBarcodes = barcodes.filter((item) => item.pid !== pid);
+      setBarcodes(loadedBarcodes);
     }
-    setBarcodes(loadedBarcodes);
+    
   };
 
   return (
