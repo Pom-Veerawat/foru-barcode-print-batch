@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 import { ComponentToPrint } from "./ComponentToPrint";
-import  ComponentToAdd  from "./ComponentToAdd";
+import ComponentToAdd from "./ComponentToAdd";
 import classes from "./PrintingContent.module.css";
-
+import Card from "../UI/Card";
 const PrintingContent = () => {
   const componentRef = useRef(null);
   const handlePrint = useReactToPrint({
@@ -11,7 +11,7 @@ const PrintingContent = () => {
   });
 
   const mybarcode = [
-    {
+    /* {
       pid: "001",
       title: "Vistra 1",
       des: "Sushi",
@@ -38,9 +38,16 @@ const PrintingContent = () => {
       des: "Green Bowl",
       price: "500",
       barcode: 18.99,
-    },
+    }, */
   ];
   const [barcodes, setBarcodes] = useState(mybarcode);
+
+  const onAddItem=(item)=>{
+    const allItem = [...barcodes];
+    allItem.push(item);
+    setBarcodes(allItem);
+
+  }
 
   const onDeleteItem = (pid, event) => {
     let ans = window.confirm("คุณต้องการที่จะลบรายการนี้หรือไม่ " + pid + " ?");
@@ -53,10 +60,13 @@ const PrintingContent = () => {
 
   return (
     <div className={classes.A4}>
+      <Card>
+        <ComponentToAdd  onAddItem={onAddItem}/>
+      </Card>
       Click ที่ป้ายเพื่อลบ
-      <ComponentToAdd />
       <ComponentToPrint
         onDeleteData={onDeleteItem}
+        
         items={barcodes}
         ref={componentRef}
       />

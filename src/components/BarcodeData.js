@@ -6,7 +6,7 @@ const BarcodeData = (props) => {
       <div className={classes.maindatabarcode}>
         <div className={classes.title}>{props.title}</div>
         <div className={classes.des}>{props.des}</div>
-        <div className={classes.price}>{props.price}</div>
+        <div className={classes.price}>{ props.price}</div>
       </div>
       <div className={classes.seconddatabarcode}>
         <div>{props.barcode}</div>
