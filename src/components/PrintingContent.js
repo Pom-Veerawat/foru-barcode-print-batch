@@ -42,34 +42,51 @@ const PrintingContent = () => {
   ];
   const [barcodes, setBarcodes] = useState(mybarcode);
 
-  const onAddItem=(item)=>{
+  const onAddItem = (item) => {
     const allItem = [...barcodes];
     allItem.push(item);
     setBarcodes(allItem);
     //console.log(allItem);
-  }
+  };
 
   const onDeleteItem = (pid, event) => {
     let ans = window.confirm("คุณต้องการที่จะลบรายการนี้หรือไม่ " + pid + " ?");
     let loadedBarcodes = [];
     console.log(ans);
-    if (ans===true) {
+    if (ans === true) {
       loadedBarcodes = barcodes.filter((item) => item.pid !== pid);
       setBarcodes(loadedBarcodes);
     }
-    
   };
-
+  const [inputFontText, setInputFontText] = useState("9");
+  const inputFontHandler = (event) => {
+    setInputFontText((prev) => {
+      //prev การันตีค่าก่อนหน้า
+      return event.target.value;
+    });
+  };
   return (
     <div className={classes.A4}>
       <Card>
-        <ComponentToAdd  onAddItem={onAddItem}/>
+        <ComponentToAdd onAddItem={onAddItem} />
+      </Card>
+      <Card>
+        <p>ตั้งค่า font barcode</p>
+        <div>
+          <input
+            style={{ width: "50px" }}
+            onChange={inputFontHandler}
+            value={inputFontText}
+            type="text"
+            placeholder="font px"
+          ></input>
+        </div>
       </Card>
       Click ที่ป้ายเพื่อลบ
       <ComponentToPrint
         onDeleteData={onDeleteItem}
-        
         items={barcodes}
+        fontval ={inputFontText}
         ref={componentRef}
       />
       <button onClick={handlePrint}>Print!</button>

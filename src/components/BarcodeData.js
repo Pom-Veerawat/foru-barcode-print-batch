@@ -16,7 +16,7 @@ const BarcodeData = (props) => {
       <div className={classes.seconddatabarcode}>
         {/* <div>{props.barcode}</div> */}
         <div>
-          <Barcode value={props.barcode} width={1} height={12} flat={true} fontSize={9}/>
+          <Barcode value={props.barcode} width={1} height={12} flat={true} fontSize={props.fontV}/>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const ComponentToAdd = (props) => {
   const [error, setError] = useState();
   const [inputText, setInputText] = useState("");
+  
   const [apiCallItem, setApiCallItem] = useState({
     pid: "1",
     pcode: "P-1",
@@ -27,6 +28,7 @@ const ComponentToAdd = (props) => {
       return event.target.value;
     });
   };
+ 
   const onButtonClickHandler = () => {
     try {
       const result = parseInt(inputText);
@@ -121,6 +123,7 @@ const ComponentToAdd = (props) => {
           itemId={apiCallItem.pid}
           onDeleteHandler ={onClickDelete}
         /> */}
+      
       <br></br>
       <button onClick={onButtonInsertHandler}>Insert</button>
     </div>
