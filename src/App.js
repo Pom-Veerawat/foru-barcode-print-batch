@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import PrintingContent from './components/PrintingContent';
 
-function App() {
+function App(props) {
+  //console.log(props.branchID);
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -20,7 +21,7 @@ function App() {
         </a>
         
       </header> */}
-      <PrintingContent></PrintingContent>
+      <PrintingContent branchId={props.branchID}></PrintingContent>
     </div>
   );
 }

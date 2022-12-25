@@ -4,7 +4,7 @@ import { ComponentToPrint } from "./ComponentToPrint";
 import ComponentToAdd from "./ComponentToAdd";
 import classes from "./PrintingContent.module.css";
 import Card from "../UI/Card";
-const PrintingContent = () => {
+const PrintingContent = (props) => {
   const componentRef = useRef(null);
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -68,7 +68,7 @@ const PrintingContent = () => {
   return (
     <div className={classes.A4}>
       <Card>
-        <ComponentToAdd onAddItem={onAddItem} />
+        <ComponentToAdd onAddItem={onAddItem} branchID={props.branchId} />
       </Card>
       {/* <Card>
         <p>ตั้งค่า font barcode</p>

@@ -15,12 +15,13 @@ const ComponentToAdd = (props) => {
     barcode_num: "8994333385670",
     barcode: "",
   });
-  const [apiData, setApiData] = useState({ productid: "1784" });
+  const [apiData, setApiData] = useState({ productid: "1784" ,branch_id:props.branchID});
 
   //let data = { productid: "1784" };
 
   useEffect(() => {
     readDataAPI();
+    console.log(props.branchID);
   }, [apiData]);
   const inputOnchangeHandler = (event) => {
     setInputText((prev) => {
@@ -34,7 +35,7 @@ const ComponentToAdd = (props) => {
       const result = parseInt(inputText);
       console.log(result);
       setError(null);
-      setApiData({ productid: inputText });
+      setApiData({ productid: inputText ,branch_id:props.branchID});
     } catch (err) {
       setError("กรอกได้เฉพาะตัวเลขเท่านั้น !!");
       return;
