@@ -43,7 +43,7 @@ const ComponentToAdd = (props) => {
   const onButtonInsertHandler = () => {
     props.onAddItem({
       ...apiCallItem,
-      price: parseFloat(apiCallItem.price).toFixed(2).toString(),
+      price: parseFloat(apiCallItem.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').toString(),
     });
     //console.log(apiCallItem);
   };
@@ -65,7 +65,7 @@ const ComponentToAdd = (props) => {
       .then((result) => {
         setApiCallItem({ ...result });
 
-        //console.log(result);
+        console.log(result);
         /* setCusName(result.cusName);
         setCusLastName(result.cusLastName);
         setCusAvatarLink(result.cusAvatarLink);

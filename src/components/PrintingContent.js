@@ -70,7 +70,7 @@ const PrintingContent = () => {
       <Card>
         <ComponentToAdd onAddItem={onAddItem} />
       </Card>
-      <Card>
+      {/* <Card>
         <p>ตั้งค่า font barcode</p>
         <div>
           <input
@@ -81,7 +81,7 @@ const PrintingContent = () => {
             placeholder="font px"
           ></input>
         </div>
-      </Card>
+      </Card> */}
       Click ที่ป้ายเพื่อลบ
       <ComponentToPrint
         onDeleteData={onDeleteItem}
