@@ -10,8 +10,8 @@
   width: 5cm;
   display: inline-block;
   text-align: start;
- 
-  padding: 0.6mm;
+margin-left: 0.5mm;
+  /* padding: 0.6mm; */
 }
 
 .title {
@@ -25,42 +25,39 @@
 .price {
   height: 1cm;
   font-size: 0.85cm;
-  display:inline-block !important;
+  display: inline-block !important;
   float: right;
   /* flex: right; */
 }
-.bath{
+.bath {
   font-size: 0.3cm;
   /* text-align: right; */
-  display:inline-block;
+  display: inline-block;
   /* Ignore this, it's just to show the green sidebar is not jumping to the next line, even though it "collides" */
-  
-  z-index:100;
-  position:relative;
+
+  z-index: 100;
+  position: relative;
   float: right;
   margin-right: 0.5cm;
   margin-top: 25px;
   padding-left: 5px;
   /* ; */
 }
-.unit{
+.unit {
   float: left;
   font-size: 0.3cm;
   margin-top: 25px;
   /* width:350px; */
-  
 }
 
-.position{
+.position {
   margin-left: -15px;
   float: left;
   width: auto;
   margin-top: 10px;
   margin-bottom: -15px;
   font-size: 0.3cm;
- /*  font-size: 0.3cm;
+  /*  font-size: 0.3cm;
   margin-top: 25px; */
   /* width:350px; */
-  
 }
-

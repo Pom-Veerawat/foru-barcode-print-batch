@@ -11,15 +11,12 @@ const BarcodeData = (props) => {
       <div className={classes.maindatabarcode}>
         <div className={classes.title}>{props.title}</div>
 
-        <div >
+        <div>
           <div className={classes.bath}> บาท</div>
           <div className={classes.price}>{props.price}</div>
           <div className={classes.unit}> {props.unit}</div>
         </div>
-        <div className={classes.position}>
-        aad 99/99/999
-          
-        </div>
+        <div className={classes.position}>aad 99/99/999</div>
       </div>
       <div className={classes.seconddatabarcode}>
         {/* <div>{props.barcode}</div> */}
@@ -31,7 +28,6 @@ const BarcodeData = (props) => {
             flat={true}
             fontSize={props.fontV}
             displayValue={false}
-            
           />
         </div>
       </div>
