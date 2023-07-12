@@ -3,6 +3,25 @@ import classes from "./BarcodeData.module.css";
 import Barcode from "react-barcode";
 
 const BarcodeData = (props) => {
+
+  const desAll =()=>{
+    
+    let val =props.des;
+    if(val.length<15)
+    {
+      const addMroe = 15 - val.length;
+      //console.log(addMroe);
+      for (let index = 0; index < addMroe; index++) {
+        val = val + "--";
+        
+      }
+    }
+    //console.log(val);
+    //return "000000000000000"
+    return props.des+" สมาชิก ---- บาท";
+    
+  }
+//desAll();
   return (
     <div
       className={classes.allinline}
@@ -16,7 +35,7 @@ const BarcodeData = (props) => {
           <div className={classes.price}>{props.price}</div>
           <div className={classes.unit}> {props.unit}</div>
         </div>
-        <div className={classes.position}>aad 99/99/999</div>
+        <div className={classes.position}>{desAll()}</div>
       </div>
       <div className={classes.seconddatabarcode}>
         {/* <div>{props.barcode}</div> */}
