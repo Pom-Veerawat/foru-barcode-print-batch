@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const ComponentToAdd = (props) => {
   const [error, setError] = useState();
   const [inputText, setInputText] = useState("");
-  
+
   const [apiCallItem, setApiCallItem] = useState({
     pid: "1",
     pcode: "P-1",
@@ -15,7 +15,10 @@ const ComponentToAdd = (props) => {
     barcode_num: "8994333385670",
     barcode: "",
   });
-  const [apiData, setApiData] = useState({ productid: "1784" ,branch_id:props.branchID});
+  const [apiData, setApiData] = useState({
+    productid: "1784",
+    branch_id: props.branchID,
+  });
 
   //let data = { productid: "1784" };
 
@@ -29,13 +32,14 @@ const ComponentToAdd = (props) => {
       return event.target.value;
     });
   };
- 
+
   const onButtonClickHandler = () => {
     try {
-      const result = parseInt(inputText);
-      console.log(result);
+      /*  const result = parseInt(inputText);
+      console.log(result); */
+      console.log("inputText",inputText);
       setError(null);
-      setApiData({ productid: inputText ,branch_id:props.branchID});
+      setApiData({ productid: inputText, branch_id: props.branchID });
     } catch (err) {
       setError("กรอกได้เฉพาะตัวเลขเท่านั้น !!");
       return;
@@ -44,13 +48,17 @@ const ComponentToAdd = (props) => {
   const onButtonInsertHandler = () => {
     props.onAddItem({
       ...apiCallItem,
-      price: parseFloat(apiCallItem.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').toString(),
+      price: parseFloat(apiCallItem.price)
+        .toFixed(2)
+        .replace(/\d(?=(\d{3})+\.)/g, "$&,")
+        .toString(),
     });
     //console.log(apiCallItem);
   };
   function readDataAPI() {
     /* setIsLoading(true); */
     /* const lineid = props.lineid; */
+    console.log("apiData",apiData)
     var requestOptions = {
       method: "POST",
       headers: {
@@ -124,7 +132,7 @@ const ComponentToAdd = (props) => {
           itemId={apiCallItem.pid}
           onDeleteHandler ={onClickDelete}
         /> */}
-      
+
       <br></br>
       <button onClick={onButtonInsertHandler}>Insert</button>
     </div>

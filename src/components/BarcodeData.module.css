@@ -10,7 +10,7 @@
   width: 5cm;
   display: inline-block;
   text-align: start;
-margin-left: 0.5mm;
+  margin-left: 0.5mm;
   /* padding: 0.6mm; */
 }
 
@@ -56,8 +56,20 @@ margin-left: 0.5mm;
   width: auto;
   margin-top: 10px;
   margin-bottom: -15px;
-  font-size: 0.3cm;
+  font-size: 0.25cm;
   /*  font-size: 0.3cm;
   margin-top: 25px; */
   /* width:350px; */
+}
+.intPart {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.decimalPart {
+  font-size: 14px;
+  vertical-align: baseline; /* aligns with the bottom of intPart */
+  line-height: 1; /* make sure it’s tight */
+  display: inline-block;
+  padding-bottom: 2px; /* fine-tune if needed */
 }

@@ -24,6 +24,8 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
           itemId ={item.pid}
           unit={item.unit}
           fontV={props.fontval}
+          gp19={item.gp19}
+          gp20={item.gp20}
           onDeleteHandler ={onClickDelete}
         />
       ))}
