@@ -26,8 +26,8 @@ const BarcodeData = (props) => {
       onClick={props.onDeleteHandler.bind(this, props.itemId)}
     >
       <div className={classes.maindatabarcode}>
-        <div className={classes.title}>{props.title} - ราคาสมาชิก</div>
-
+        <div className={classes.title}>{props.title} </div>
+      
         <div>
           <div className={classes.bath}> บาท</div>
           <div className={classes.price}>
@@ -35,6 +35,7 @@ const BarcodeData = (props) => {
             <span className={classes.decimalPart}>.{decimalPart}</span>
           </div>
           <div style={{ flexDirection: "column" }}>
+              <div className={classes.title2}>ราคาสมาชิก</div>
             <div className={classes.unit}> {props.unit}</div>
           </div>
         </div>

@@ -33,11 +33,26 @@ const ComponentToAdd = (props) => {
     });
   };
 
+  useEffect(() => {
+    if (inputText === "") return;
+
+    const handler = setTimeout(() => {
+      console.log("Auto call after delay 0.5s:", inputText);
+      setError(null);
+      readDataAPI();
+      onButtonClickHandler();
+    }, 1000);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [inputText]);
+
   const onButtonClickHandler = () => {
     try {
       /*  const result = parseInt(inputText);
       console.log(result); */
-      console.log("inputText",inputText);
+      console.log("inputText", inputText);
       setError(null);
       setApiData({ productid: inputText, branch_id: props.branchID });
     } catch (err) {
@@ -58,7 +73,7 @@ const ComponentToAdd = (props) => {
   function readDataAPI() {
     /* setIsLoading(true); */
     /* const lineid = props.lineid; */
-    console.log("apiData",apiData)
+    console.log("apiData", apiData);
     var requestOptions = {
       method: "POST",
       headers: {
@@ -74,6 +89,16 @@ const ComponentToAdd = (props) => {
       .then((result) => {
         setApiCallItem({ ...result });
 
+        const handler = setTimeout(() => {
+          props.onAddItem({
+            ...{ ...result },
+            price: parseFloat(apiCallItem.price)
+              .toFixed(2)
+              .replace(/\d(?=(\d{3})+\.)/g, "$&,")
+              .toString(),
+          });
+          setInputText("");
+        }, 1500);
         console.log(result);
         /* setCusName(result.cusName);
         setCusLastName(result.cusLastName);

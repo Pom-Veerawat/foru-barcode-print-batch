@@ -15,8 +15,13 @@
 }
 
 .title {
-  height: 0.75cm;
+  /* height: 0.75cm; */
   font-size: 0.3cm;
+}
+.title2 {
+  /* height: 0.75cm; */
+  font-size: 0.3cm;
+  margin-bottom: 10px;
 }
 .des {
   height: 0.75cm;
@@ -46,7 +51,7 @@
 .unit {
   float: left;
   font-size: 0.3cm;
-  margin-top: 25px;
+  margin-top: 1px;
   /* width:350px; */
 }
 
