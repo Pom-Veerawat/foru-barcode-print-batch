@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const ComponentToAdd = (props) => {
   const [error, setError] = useState();
   const [inputText, setInputText] = useState("");
+  const [priceLevel, setPriceLevel] = useState("1"); // ตัวเลือกเริ่มต้น
 
   const [apiCallItem, setApiCallItem] = useState({
     pid: "1",
@@ -18,14 +19,15 @@ const ComponentToAdd = (props) => {
   const [apiData, setApiData] = useState({
     productid: "1784",
     branch_id: props.branchID,
+    price_level: "1",
   });
 
   //let data = { productid: "1784" };
 
   useEffect(() => {
     readDataAPI();
-    console.log(props.branchID);
-  }, [apiData]);
+  }, [apiData, priceLevel]);
+
   const inputOnchangeHandler = (event) => {
     setInputText((prev) => {
       //prev การันตีค่าก่อนหน้า
@@ -41,7 +43,7 @@ const ComponentToAdd = (props) => {
       setError(null);
       readDataAPI();
       onButtonClickHandler();
-    }, 1000);
+    }, 800);
 
     return () => {
       clearTimeout(handler);
@@ -54,7 +56,11 @@ const ComponentToAdd = (props) => {
       console.log(result); */
       console.log("inputText", inputText);
       setError(null);
-      setApiData({ productid: inputText, branch_id: props.branchID });
+      setApiData({
+        productid: inputText,
+        branch_id: props.branchID,
+        price_level: priceLevel,
+      });
     } catch (err) {
       setError("กรอกได้เฉพาะตัวเลขเท่านั้น !!");
       return;
@@ -98,7 +104,7 @@ const ComponentToAdd = (props) => {
               .toString(),
           });
           setInputText("");
-        }, 1500);
+        }, 1000);
         console.log(result);
         /* setCusName(result.cusName);
         setCusLastName(result.cusLastName);
@@ -121,6 +127,16 @@ const ComponentToAdd = (props) => {
   };
   return (
     <div>
+      <select
+        value={priceLevel}
+        onChange={(e) => setPriceLevel(e.target.value)}
+        style={{ marginBottom: "10px" }}
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+
       <input
         style={{ width: "500px" }}
         onChange={inputOnchangeHandler}
