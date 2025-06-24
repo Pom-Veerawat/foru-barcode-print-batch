@@ -15,7 +15,8 @@ const BarcodeData = (props) => {
     }
     //console.log(val);
     //return "000000000000000"
-    return props.des + " ราคาปกติ " + props.gp19 + " บาท";
+    //return props.des + " ราคาปกติ " + props.gp19 + " บาท";
+    return "      ราคาปกติ " + props.gp19 + " บาท";
   };
   const number = parseFloat(props.gp20).toFixed(2);
   const [intPart, decimalPart] = number.split(".");

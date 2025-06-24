@@ -68,7 +68,11 @@ const PrintingContent = (props) => {
   return (
     <div className={classes.A4}>
       <Card>
-        <ComponentToAdd onAddItem={onAddItem} branchID={props.branchId} />
+        <ComponentToAdd
+          lengthItem={barcodes}
+          onAddItem={onAddItem}
+          branchID={props.branchId}
+        />
       </Card>
       {/* <Card>
         <p>ตั้งค่า font barcode</p>
@@ -86,7 +90,7 @@ const PrintingContent = (props) => {
       <ComponentToPrint
         onDeleteData={onDeleteItem}
         items={barcodes}
-        fontval ={inputFontText}
+        fontval={inputFontText}
         ref={componentRef}
       />
       <button onClick={handlePrint}>Print!</button>

@@ -5,6 +5,7 @@ const ComponentToAdd = (props) => {
   const [inputText, setInputText] = useState("");
   const [priceLevel, setPriceLevel] = useState("1"); // ตัวเลือกเริ่มต้น
 
+  const [lenghtOfItem, setLenghtOfItem] = useState("" + props.lengthItem);
   const [apiCallItem, setApiCallItem] = useState({
     pid: "1",
     pcode: "P-1",
@@ -67,6 +68,11 @@ const ComponentToAdd = (props) => {
     }
   };
   const onButtonInsertHandler = () => {
+    if (lenghtOfItem == "32") {
+      window.alert("ครบ 32 แล้ว");
+      return;
+    }
+
     props.onAddItem({
       ...apiCallItem,
       price: parseFloat(apiCallItem.price)
@@ -121,6 +127,9 @@ const ComponentToAdd = (props) => {
       .catch((error) => console.log("error", error));
     //console.log("finish call apiload");
   }
+  const handleRefresh = () => {
+    window.location.reload();
+  };
   const onClickDelete = (pid, event) => {
     //console.log(pid);
     //props.onDeleteData(pid);
@@ -144,6 +153,10 @@ const ComponentToAdd = (props) => {
         type="text"
         placeholder="กรุณาใส่ id สินค้า"
       ></input>
+      <br></br>
+      <div>
+        <button onClick={handleRefresh}>Refresh Window</button>
+      </div>
       <br></br>
       <div>
         {error ?? "กรุณากรอกตัวเลขแล้วกด Call"}
