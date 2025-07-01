@@ -56,10 +56,10 @@
 }
 
 .position {
-  margin-left: -15px;
+  margin-left: 10px;
   float: left;
   width: auto;
-  margin-top: 10px;
+ /*  margin-top: 5px; */
   margin-bottom: -15px;
   font-size: 0.25cm;
   /*  font-size: 0.3cm;
@@ -82,6 +82,6 @@
 
 .barcodeWrapper {
   position: relative;
-  top: 1px; /* Move barcode up a tiny bit more if needed */
-  margin-top: 1px;
+  top: -5px; /* Move barcode up a tiny bit more if needed */
+  margin-top: -5px;
 }

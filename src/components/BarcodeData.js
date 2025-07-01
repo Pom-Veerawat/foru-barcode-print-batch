@@ -36,7 +36,7 @@ const BarcodeData = (props) => {
             <span className={classes.decimalPart}>.{decimalPart}</span>
           </div>
           <div style={{ flexDirection: "column" }}>
-            <div className={classes.title2}>ราคาสมาชิก</div>
+            <div className={classes.title2}>ราคาสมาชิก Member Price</div>
             <div className={classes.unit}> {props.unit}</div>
           </div>
         </div>
