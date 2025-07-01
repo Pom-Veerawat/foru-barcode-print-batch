@@ -1,80 +1,101 @@
-.maindatabarcode {
-  height: 2.5cm;
-  margin-left: 0px;
-}
-.seconddatabarcode {
-  margin-top: -5px;
-  height: 1cm;
-}
+/* Overall container for a single label */
 .allinline {
   width: 5cm;
   display: inline-block;
   text-align: start;
   margin-left: 0.5mm;
-  /* padding: 0.6mm; */
+  font-family: sans-serif; /* Recommended for consistency */
 }
 
+/* Container for all text content (above the barcode) */
+.maindatabarcode {
+  height: auto; /* Let content define height */
+  min-height: 2.5cm;
+  margin-left: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Product title */
 .title {
-  /* height: 0.75cm; */
   font-size: 0.3cm;
+  margin-bottom: 5px;
+  /* Make sure long titles wrap */
+  word-wrap: break-word;
 }
-.title2 {
-  /* height: 0.75cm; */
-  font-size: 0.3cm;
-  margin-bottom: 10px;
-}
-.des {
-  height: 0.75cm;
-  font-size: 0.35cm;
-}
-.price {
-  height: 1cm;
-  font-size: 0.85cm;
-  display: inline-block !important;
-  float: right;
-  /* flex: right; */
-}
-.bath {
-  font-size: 0.3cm;
-  /* text-align: right; */
-  display: inline-block;
-  /* Ignore this, it's just to show the green sidebar is not jumping to the next line, even though it "collides" */
 
-  z-index: 100;
-  position: relative;
-  float: right;
-  margin-right: 0.5cm;
-  margin-top: 25px;
-  padding-left: 5px;
-  /* ; */
+/* === NEW FLEXBOX LAYOUT RULES === */
+
+/* Flex container for the "member price" section */
+.detailsContainer {
+  display: flex;
+  justify-content: space-between; /* Pushes left and right sides apart */
+  align-items: flex-end; /* Aligns items to the bottom */
+  width: 100%;
+  margin-bottom: 4px;
 }
+
+/* Container for left-side text ("ราคาสมาชิก", unit) */
+.leftDetails {
+  text-align: left;
+}
+
+/* Container for right-side text (price, "บาท") */
+.rightDetails {
+  display: flex;
+  align-items: baseline; /* Aligns price and currency text perfectly */
+}
+
+/* === CLEANED UP ELEMENT STYLES (NO MORE FLOATS) === */
+
+.title2 {
+  font-size: 0.3cm;
+  margin-bottom: 2px;
+}
+
 .unit {
-  float: left;
   font-size: 0.3cm;
   margin-top: 1px;
-  /* width:350px; */
 }
 
-.position {
-  margin-left: -15px;
-  float: left;
-  width: auto;
-  margin-top: 10px;
-  margin-bottom: -15px;
-  font-size: 0.25cm;
-  /*  font-size: 0.3cm;
-  margin-top: 25px; */
-  /* width:350px; */
-}
-.intPart {
-  font-size: 24px;
+.price {
+  font-size: 0.85cm;
   font-weight: bold;
+}
+
+.bath {
+  font-size: 0.3cm;
+  padding-left: 4px; /* Space between price and "บาท" */
+}
+
+.intPart {
+  /* This class is now handled by .price font-weight, but can be kept */
 }
 
 .decimalPart {
   font-size: 14px;
-  vertical-align: baseline; /* aligns with the bottom of intPart */
-  line-height: 1; /* make sure it’s tight */
-  display: inline-block;
-  padding-bottom: 2px; /* fine-tune if needed */
+  font-weight: normal;
+  vertical-align: super; /* Lifts the decimal part up */
+}
+
+/* The "regular price" line */
+.position {
+  width: 100%;
+  text-align: left;
+  font-size: 0.25cm;
+}
+
+/* === BARCODE POSITIONING === */
+
+/* The container holding the barcode, moved up to overlap slightly */
+.seconddatabarcode {
+  height: auto;
+  margin-top: -10px; /* Adjust this value to control overlap */
+}
+
+/* A wrapper to nudge the barcode itself up or down for fine-tuning */
+.barcodeWrapper {
+  position: relative;
+  top: -10px; /* Move barcode up a tiny bit more if needed */
+  margin-top: -10px;
 }

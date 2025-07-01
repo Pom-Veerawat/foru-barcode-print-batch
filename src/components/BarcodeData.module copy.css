@@ -1,0 +1,80 @@
+.maindatabarcode {
+  height: 2.5cm;
+  margin-left: 0px;
+}
+.seconddatabarcode {
+  margin-top: -20px;
+  height: 1.5cm;
+}
+.allinline {
+  width: 5cm;
+  display: inline-block;
+  text-align: start;
+  margin-left: 0.5mm;
+  /* padding: 0.6mm; */
+}
+
+.title {
+  /* height: 0.75cm; */
+  font-size: 0.3cm;
+}
+.title2 {
+  /* height: 0.75cm; */
+  font-size: 0.3cm;
+  margin-bottom: 10px;
+}
+.des {
+  height: 0.75cm;
+  font-size: 0.35cm;
+}
+.price {
+  height: 1cm;
+  font-size: 0.85cm;
+  display: inline-block !important;
+  float: right;
+  /* flex: right; */
+}
+.bath {
+  font-size: 0.3cm;
+  /* text-align: right; */
+  display: inline-block;
+  /* Ignore this, it's just to show the green sidebar is not jumping to the next line, even though it "collides" */
+
+  z-index: 100;
+  position: relative;
+  float: right;
+  margin-right: 0.5cm;
+  margin-top: 25px;
+  padding-left: 5px;
+  /* ; */
+}
+.unit {
+  float: left;
+  font-size: 0.3cm;
+  margin-top: 1px;
+  /* width:350px; */
+}
+
+.position {
+  margin-left: -15px;
+  float: left;
+  width: auto;
+  margin-top: 10px;
+  margin-bottom: -15px;
+  font-size: 0.25cm;
+  /*  font-size: 0.3cm;
+  margin-top: 25px; */
+  /* width:350px; */
+}
+.intPart {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.decimalPart {
+  font-size: 14px;
+  vertical-align: baseline; /* aligns with the bottom of intPart */
+  line-height: 1; /* make sure it’s tight */
+  display: inline-block;
+  padding-bottom: 2px; /* fine-tune if needed */
+}
