@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const ComponentToAdd = (props) => {
   const [error, setError] = useState();
   const [inputText, setInputText] = useState("");
+  const [bulkInputText, setBulkInputText] = useState("");
   const [priceLevel, setPriceLevel] = useState("1"); // ตัวเลือกเริ่มต้น
 
   const [lenghtOfItem, setLenghtOfItem] = useState("" + props.lengthItem);
@@ -18,7 +19,7 @@ const ComponentToAdd = (props) => {
     barcode: "",
   });
   const [apiData, setApiData] = useState({
-    productid: "1784",
+    productid: "0909",
     branch_id: props.branchID,
     price_level: "1",
   });
@@ -26,12 +27,21 @@ const ComponentToAdd = (props) => {
   //let data = { productid: "1784" };
 
   useEffect(() => {
-    readDataAPI();
+    // Only call API if apiData has a valid productid that's not the default
+    if (apiData.productid !== "0909") {
+      readDataAPI();
+    }
   }, [apiData, priceLevel]);
 
   const inputOnchangeHandler = (event) => {
     setInputText((prev) => {
       //prev การันตีค่าก่อนหน้า
+      return event.target.value;
+    });
+  };
+
+  const bulkInputOnchangeHandler = (event) => {
+    setBulkInputText((prev) => {
       return event.target.value;
     });
   };
@@ -42,7 +52,6 @@ const ComponentToAdd = (props) => {
     const handler = setTimeout(() => {
       console.log("Auto call after delay 0.5s:", inputText);
       setError(null);
-      readDataAPI();
       onButtonClickHandler();
     }, 800);
 
@@ -50,6 +59,60 @@ const ComponentToAdd = (props) => {
       clearTimeout(handler);
     };
   }, [inputText]);
+
+  useEffect(() => {
+    if (bulkInputText === "") return;
+
+    const handler = setTimeout(() => {
+      console.log("Auto bulk call after delay 0.5s:", bulkInputText);
+      setError(null);
+      processBulkInput();
+    }, 800);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [bulkInputText]);
+
+  const processBulkInput = () => {
+    try {
+      // Split by comma or space and remove empty strings and whitespace
+      const productIds = bulkInputText
+        .split(/[,\s]+/)
+        .map(id => id.trim())
+        .filter(id => id !== '');
+      
+      console.log("Processing bulk IDs:", productIds);
+      setError(null);
+      
+      // Process each ID by feeding it into the original single input logic
+      const processSingleId = (ids, currentIndex = 0) => {
+        if (currentIndex >= ids.length) {
+          // All IDs processed, clear the bulk input
+          setBulkInputText("");
+          return;
+        }
+        
+        const productId = ids[currentIndex];
+        console.log(`Processing bulk ID ${currentIndex + 1}/${ids.length}:`, productId);
+        
+        // Set the single input text to trigger the original processing logic
+        setInputText(productId);
+        
+        // Wait for the original processing to complete, then process next ID
+        setTimeout(() => {
+          processSingleId(ids, currentIndex + 1);
+        }, 2000); // 2 second delay to allow original processing to complete
+      };
+      
+      // Start processing the first ID
+      processSingleId(productIds);
+      
+    } catch (err) {
+      setError("เกิดข้อผิดพลาดในการประมวลผล bulk input");
+      return;
+    }
+  };
 
   const onButtonClickHandler = () => {
     try {
@@ -86,6 +149,7 @@ const ComponentToAdd = (props) => {
     /* setIsLoading(true); */
     /* const lineid = props.lineid; */
     console.log("apiData", apiData);
+    
     var requestOptions = {
       method: "POST",
       headers: {
@@ -99,32 +163,27 @@ const ComponentToAdd = (props) => {
     fetch("https://www.forucenter.com/dev/api/WebHookApi", requestOptions)
       .then((response) => response.json())
       .then((result) => {
+        console.log("API call finished for:", apiData.productid, "Result:", result);
         setApiCallItem({ ...result });
 
-        const handler = setTimeout(() => {
-          props.onAddItem({
-            ...{ ...result },
-            price: parseFloat(apiCallItem.price)
-              .toFixed(2)
-              .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-              .toString(),
-          });
-          setInputText("");
-        }, 1000);
-        console.log(result);
-        /* setCusName(result.cusName);
-        setCusLastName(result.cusLastName);
-        setCusAvatarLink(result.cusAvatarLink);
-        setCusId(result.cusId);
-        setCusPoint(result.cusPoint);
-        setCusBirthday(result.cusBirthday);
-        setCusRegisterDate(result.cusRegisterDate);
-        setCusPhone(result.cusPhone);
-        setCusEmail(result.cusEmail);
-        setIsLoading(false); */
-        /*  setIsLoading(false); */
+        // Add item immediately after API response - no additional delays
+        props.onAddItem({
+          ...result,
+          price: parseFloat(result.price)
+            .toFixed(2)
+            .replace(/\d(?=(\d{3})+\.)/g, "$&,")
+            .toString(),
+        });
+        
+        // Clear input after adding item
+        setInputText("");
+        console.log("Item added and input cleared for:", apiData.productid);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("API error for:", apiData.productid, "Error:", error);
+        // Clear input even on error to continue bulk processing
+        setInputText("");
+      });
     //console.log("finish call apiload");
   }
   const handleRefresh = () => {
@@ -152,6 +211,15 @@ const ComponentToAdd = (props) => {
         value={inputText}
         type="text"
         placeholder="กรุณาใส่ id สินค้า"
+      ></input>
+      <br></br>
+      <br></br>
+      <input
+        style={{ width: "500px" }}
+        onChange={bulkInputOnchangeHandler}
+        value={bulkInputText}
+        type="text"
+        placeholder="กรุณาใส่ id สินค้าหลายตัว คั่นด้วยเครื่องหมายจุลภาคหรือช่องว่าง (เช่น 123,456,789 หรือ 123 456 789)"
       ></input>
       <br></br>
       <div>
