@@ -16,9 +16,9 @@ const BarcodeData = (props) => {
     //console.log(val);
     //return "000000000000000"
     //return props.des + " ราคาปกติ " + props.gp19 + " บาท";
-    return "      ราคาปกติ " + props.gp19 + " บาท";
+    return "      ราคาสมาชิก " + props.gp20 + " บาท";
   };
-  const number = parseFloat(props.gp20).toFixed(2);
+  const number = parseFloat(props.gp19).toFixed(2);
   const [intPart, decimalPart] = number.split(".");
   //desAll();
   return (
@@ -27,7 +27,15 @@ const BarcodeData = (props) => {
       onClick={props.onDeleteHandler.bind(this, props.itemId)}
     >
       <div className={classes.maindatabarcode}>
-        <div className={classes.title}>{props.title} </div>
+        <div
+          className={classes.title}
+          style={{
+            fontSize:
+              props.title && props.title.length > 31 ? "0.21cm" : undefined,
+          }}
+        >
+          {props.title}{" "}
+        </div>
 
         <div>
           <div className={classes.bath}> บาท</div>
@@ -36,7 +44,7 @@ const BarcodeData = (props) => {
             <span className={classes.decimalPart}>.{decimalPart}</span>
           </div>
           <div style={{ flexDirection: "column" }}>
-            <div className={classes.title2}>ราคาสมาชิก Member Price</div>
+            <div className={classes.title2}>ราคาปกติ</div>
             <div className={classes.unit}> {props.unit}</div>
           </div>
         </div>
