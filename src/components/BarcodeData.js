@@ -1,7 +1,5 @@
 import React from "react";
 import classes from "./BarcodeData.module.css";
-import Barcode from "react-barcode";
-
 const BarcodeData = (props) => {
   console.log("props BarcodeData", props);
   const desAll = () => {
@@ -49,20 +47,6 @@ const BarcodeData = (props) => {
           </div>
         </div>
         <div className={classes.position}>{desAll()}</div>
-      </div>
-      <div className={classes.seconddatabarcode}>
-        {/* <div>{props.barcode}</div> */}
-        <div className={classes.barcodeWrapper}>
-          <Barcode
-            value={props.barcode}
-            width={1.2}
-            height={20}
-            flat={true}
-            fontSize={props.fontV}
-            displayValue={false}
-            margin={0}
-          />
-        </div>
       </div>
     </div>
   );
