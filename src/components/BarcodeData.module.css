@@ -1,87 +1,91 @@
-.maindatabarcode {
-  height: 2.5cm;
-  margin-left: 0px;
-}
-.seconddatabarcode {
-  margin-top: -20px;
-  height: 1.5cm;
-}
 .allinline {
   width: 5cm;
-  display: inline-block;
-  text-align: start;
-  margin-left: 0.5mm;
-  /* padding: 0.6mm; */
+  height: 3.5cm;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2mm;
+  box-sizing: border-box;
+  vertical-align: top;
+  overflow: hidden;
+  background-color: white; /* Ensure background is white for print */
+}
+
+.maindatabarcode {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
-  /* height: 0.75cm; */
   font-size: 0.3cm;
+  line-height: 1.2;
+  margin-bottom: 2mm;
+  width: 100%;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 1mm;
 }
+
+.priceSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1mm;
+}
+
+.priceRow {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+}
+
 .title2 {
-  /* height: 0.75cm; */
-  font-size: 0.3cm;
-  margin-bottom: 10px;
+  font-size: 0.25cm;
+  color: #000;
+  margin-bottom: 0px;
 }
-.des {
-  height: 0.75cm;
-  font-size: 0.35cm;
-}
+
 .price {
-  height: 1cm;
-  font-size: 0.85cm;
-  display: inline-block !important;
-  float: right;
-  /* flex: right; */
-}
-.bath {
-  font-size: 0.3cm;
-  /* text-align: right; */
   display: inline-block;
-  /* Ignore this, it's just to show the green sidebar is not jumping to the next line, even though it "collides" */
-
-  z-index: 100;
-  position: relative;
-  float: right;
-  margin-right: 0.5cm;
-  margin-top: 25px;
-  padding-left: 5px;
-  /* ; */
-}
-.unit {
-  float: left;
-  font-size: 0.3cm;
-  margin-top: 1px;
-  /* width:350px; */
+  line-height: 1;
 }
 
-.position {
-  margin-left: 10px;
-  float: left;
-  width: auto;
- /*  margin-top: 5px; */
-  margin-bottom: -15px;
-  font-size: 0.3cm;
-  /*  font-size: 0.3cm;
-  margin-top: 25px; */
-  /* width:350px; */
-}
 .intPart {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
 }
 
 .decimalPart {
-  font-size: 14px;
-  vertical-align: baseline; /* aligns with the bottom of intPart */
-  line-height: 1; /* make sure it’s tight */
-  display: inline-block;
-  padding-bottom: 2px; /* fine-tune if needed */
+  font-size: 18px;
+  vertical-align: super; /* Adjust alignment if needed, or keep baseline */
+  vertical-align: baseline;
 }
 
+.bath {
+  font-size: 0.25cm;
+  margin-left: 3px;
+}
 
+.unit {
+  font-size: 0.25cm;
+  margin-top: 1px;
+}
+
+/* Legacy or unused classes kept for safety if referenced dynamically or by other components sharing this file */
+.seconddatabarcode {
+  margin-top: -20px;
+  height: 1.5cm;
+}
 .barcodeWrapper {
   position: relative;
-  top: -5px; /* Move barcode up a tiny bit more if needed */
+  top: -5px; 
   margin-top: -5px;
 }

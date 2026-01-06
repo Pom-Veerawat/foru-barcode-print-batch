@@ -33,32 +33,27 @@ const BarcodeData = (props) => {
           {props.title}{" "}
         </div>
 
-        <div>
-          <div className={classes.bath}> บาท</div>
-          <div className={classes.price}>
-            <span className={classes.intPart}>{intPart}</span>
-            <span className={classes.decimalPart}>.{decimalPart}</span>
-          </div>
-          <div style={{ flexDirection: "column" }}>
-            <div className={classes.title2}>ราคาปกติ</div>
+        <div className={classes.priceSection}>
+          <div className={classes.title2}>ราคาปกติ</div>
+          <div className={classes.priceRow}>
+            <div className={classes.price}>
+              <span className={classes.intPart}>{intPart}</span>
+              <span className={classes.decimalPart}>.{decimalPart}</span>
+            </div>
+            <div className={classes.bath}>บาท</div>
           </div>
         </div>
 
-        <div style={{ clear: "both" }}>
-          <div className={classes.bath} style={{ marginTop: "10px" }}>
-            {" "}
-            บาท
-          </div>
-          <div className={classes.price}>
-            <span className={classes.intPart}>{intPart2}</span>
-            <span className={classes.decimalPart}>.{decimalPart2}</span>
-          </div>
-          <div style={{ flexDirection: "column" }}>
-            <div className={classes.title2} style={{ marginBottom: 0 }}>
-              ราคาสมาชิก
+        <div className={classes.priceSection}>
+          <div className={classes.title2}>ราคาสมาชิก</div>
+          <div className={classes.priceRow}>
+            <div className={classes.price}>
+              <span className={classes.intPart}>{intPart2}</span>
+              <span className={classes.decimalPart}>.{decimalPart2}</span>
             </div>
-            <div className={classes.unit}> {props.unit}</div>
+            <div className={classes.bath}>บาท</div>
           </div>
+          <div className={classes.unit}> {props.unit}</div>
         </div>
       </div>
     </div>
