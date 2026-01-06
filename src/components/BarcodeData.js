@@ -44,7 +44,7 @@ const BarcodeData = (props) => {
           </div>
         </div>
 
-        <div className={classes.priceSection}>
+        <div className={`${classes.priceSection} ${classes.secondPriceSection}`}>
           <div className={classes.title2}>ราคาสมาชิก</div>
           <div className={classes.priceRow}>
             <div className={classes.price}>
