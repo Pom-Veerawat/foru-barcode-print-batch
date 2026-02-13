@@ -48,7 +48,7 @@
 }
 
 .secondPriceSection {
-  margin-top: 1mm; /* Reduced significantly to bring prices close together */
+  margin-top: 4mm; 
 }
 
 .priceRow {
@@ -89,8 +89,10 @@
 }
 
 .unit {
-  font-size: 0.1cm;
+  font-size: 0.25cm;
   margin-top: 1px;
+  width: 100%;
+  text-align: right;
 }
 
 /* Legacy or unused classes kept for safety if referenced dynamically or by other components sharing this file */
