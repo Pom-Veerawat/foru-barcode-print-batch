@@ -93,6 +93,7 @@
   margin-top: 1px;
   width: 100%;
   text-align: right;
+  margin-right: 5mm;
 }
 
 /* Legacy or unused classes kept for safety if referenced dynamically or by other components sharing this file */
