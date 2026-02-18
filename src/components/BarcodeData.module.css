@@ -1,13 +1,13 @@
 .allinline {
   width: 50mm;
-  height: 35.5mm; /* Increase height slightly to match physical sticker pitch */
+  height: 35mm; /* Increase height slightly to match physical sticker pitch */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start; /* Align everything to left */
   text-align: left; /* Align text to left */
   margin: 0;
-  padding: 2mm; /* Add padding to prevent content from touching edges */
+  padding: 2mm;
   box-sizing: border-box;
   overflow: hidden;
   background-color: white;
@@ -21,7 +21,7 @@
 }
 
 .title {
-  font-size: 0.35cm;
+  font-size: 0.3cm;
   line-height: 1.1;
   width: 100%;
   display: -webkit-box;
@@ -30,23 +30,27 @@
   overflow: hidden;
   white-space: normal;
   text-overflow: ellipsis;
-  padding: 0 1mm;
+  padding: 0;
   margin-top: 1mm; /* Top padding for sticker */
   margin-bottom: 0.5mm;
   font-weight: bold;
   text-align: left; /* Ensure title is left aligned */
+  margin-left: 3mm;
 }
 
 .topSection {
   width: 100%;
-  height: 16mm; /* Reduced from 20mm to accommodate title */
+  /* height: 16mm; Reduced from 20mm to accommodate title */
+  flex: 1; /* Automatically fill the remaining space (approx 15-16mm) */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start; /* Left align content inside */
   border-bottom: 1px dashed #ccc;
   box-sizing: border-box;
-  padding: 0 1mm;
+  padding: 0;
+  padding-left: 3mm;
+  padding-bottom: 2mm;
 }
 
 .bottomSection {
@@ -58,18 +62,20 @@
   align-items: flex-start; /* Left align content inside */
   box-sizing: border-box;
   /* Safe area inside the section */
-  padding: 0 1mm 1mm 1mm;
+  padding: 0 0 1mm 0;
   position: relative;
+  padding-left: 3mm;
 }
 
 .title2 {
-  font-size: 0.35cm; /* Adjusted for better visibility */
+  font-size: 0.25cm; /* Adjusted for better visibility */
   font-weight: bold;
   color: #000;
   margin-bottom: 0.5mm;
   line-height: 1.1;
   width: 100%;
   text-align: left; /* Left align */
+  margin-left: 3mm;
 }
 
 .priceRow {
@@ -87,7 +93,7 @@
 }
 
 .intPart {
-  font-size: 28px; /* Prominent price */
+  font-size: 20px; /* Prominent price */
   font-weight: bold;
 }
 
@@ -105,10 +111,13 @@
 
 .unit {
   font-size: 0.25cm;
-  width: 100%;
+  width: 80%;
   text-align: right;
-  margin-top: 0.5mm;
-  padding-right: 2mm; /* Ensure it doesn't hit the edge */
+  margin-bottom: 2mm;
+  margin-right: 5mm;
+  
+ 
+
 }
 
 /* Ensure text doesn't overflow */

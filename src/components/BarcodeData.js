@@ -26,7 +26,7 @@ const BarcodeData = (props) => {
         className={classes.title}
         style={{
           fontSize:
-            props.title && props.title.length > 31 ? "0.21cm" : undefined,
+            props.title && props.title.length > 31 ? "0.2cm" : undefined,
         }}
       >
         {props.title}{" "}
@@ -38,7 +38,7 @@ const BarcodeData = (props) => {
             <span className={classes.intPart}>{intPart}</span>
             <span className={classes.decimalPart}>.{decimalPart}</span>
           </div>
-          <div className={classes.bath}>บาท</div>
+          <div className={classes.bath}> บาท</div>
         </div>
       </div>
 
