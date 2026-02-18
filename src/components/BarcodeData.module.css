@@ -1,13 +1,12 @@
 .allinline {
   width: 50mm;
-  height: 35mm;
+  height: 35.5mm; /* Increase height slightly to match physical sticker pitch */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start; /* Align everything to left */
   text-align: left; /* Align text to left */
   margin: 0;
-  margin-bottom: 0.2mm; /* Small adjustment for vertical drift */
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
