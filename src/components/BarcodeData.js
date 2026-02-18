@@ -26,7 +26,7 @@ const BarcodeData = (props) => {
         className={classes.title}
         style={{
           fontSize:
-            props.title && props.title.length > 31 ? "0.2cm" : undefined,
+            props.title && props.title.length > 20 ? "0.2cm" : undefined,
         }}
       >
         {props.title}{" "}

@@ -21,18 +21,19 @@
 }
 
 .title {
-  font-size: 0.3cm;
+  font-size: 0.4cm;
   line-height: 1.1;
-  width: 100%;
+  width: 90%;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* Limit to 1 line to save space */
+  -webkit-line-clamp: 2; /* Limit to 1 line to save space */
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: normal;
   text-overflow: ellipsis;
   padding: 0;
   margin-top: 1mm; /* Top padding for sticker */
-  margin-bottom: 0.5mm;
+  margin-bottom: 2mm;
+  min-height: 0.5cm;
   font-weight: bold;
   text-align: left; /* Ensure title is left aligned */
   margin-left: 3mm;
