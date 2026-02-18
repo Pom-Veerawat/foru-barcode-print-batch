@@ -1,4 +1,12 @@
-.MainA4Div{
-    margin-left : 4mm; 
-    margin-top: 0.0cm;
+.MainA4Div {
+  margin-left: 0.5mm;
+  margin-top: 0.5mm;
+  width: 210mm; /* A4 width */
+  /* Remove default margins/padding that might interfere */
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap; /* Ensure items wrap to next line after 4 columns */
+  justify-content: flex-start; /* Align items to the left */
+  align-content: flex-start; /* Align rows to the top */
 }

@@ -1,54 +1,59 @@
 .allinline {
-  width: 5cm;
-  height: 3.5cm;
-  display: inline-flex;
-  justify-content: center;
+  width: 50mm;
+  height: 35mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
-  margin: 0.5mm;
-  padding: 1mm; /* Added padding for print safety */
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  vertical-align: top;
   overflow: hidden;
-  background-color: white; /* Ensure background is white for print */
+  background-color: white;
+  border: 1px solid transparent;
+  page-break-inside: avoid;
 }
 
-.maindatabarcode {
+/* Ensure no unwanted margins affect the grid */
+.allinline:nth-child(4n) {
+  margin-right: 0;
+}
+
+.topSection {
   width: 100%;
-  height: 100%;
+  height: 20mm; /* 2cm */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px dashed #ccc;
+  box-sizing: border-box;
+  /* Safe area inside the section */
+  padding: 1mm 1mm 0 1mm;
 }
 
-.title {
-  font-size: 0.32cm; /* Bigger text */
-  line-height: 1.1;
-  margin-bottom: 0.5mm;
+.bottomSection {
   width: 100%;
-  
-  /* 2 lines logic */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  white-space: normal;
-  text-overflow: ellipsis;
-  
-  padding: 0 1mm;
-}
-
-.priceSection {
+  height: 15mm; /* 1.5cm */
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  margin-bottom: 0mm;
+  box-sizing: border-box;
+  /* Safe area inside the section */
+  padding: 0 1mm 1mm 1mm;
+  position: relative;
 }
 
-.secondPriceSection {
-  margin-top: 4mm; 
+.title2 {
+  font-size: 0.35cm; /* Adjusted for better visibility */
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 0.5mm;
+  line-height: 1.1;
+  width: 100%;
+  text-align: center; /* Centered as per typical sticker design */
 }
 
 .priceRow {
@@ -56,53 +61,43 @@
   flex-direction: row;
   align-items: baseline;
   justify-content: center;
-}
-
-.title2 {
-  font-size: 0.25cm;
-  color: #000;
-  margin-bottom: 0px;
-  line-height: 1.1;
   width: 100%;
-  text-align: left;
 }
 
 .price {
-  display: inline-block;
+  display: inline-flex;
+  align-items: baseline;
   line-height: 1;
 }
 
 .intPart {
-  font-size: 24px;
+  font-size: 28px; /* Prominent price */
   font-weight: bold;
 }
 
 .decimalPart {
-  font-size: 14px;
-  vertical-align: super; 
-  vertical-align: baseline;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .bath {
-  font-size: 0.25cm;
-  margin-left: 1px; /* Reduced margin */
+  font-size: 0.3cm;
+  margin-left: 2px;
+  align-self: flex-end; /* Align to bottom of price */
+  padding-bottom: 2px; /* Fine-tune baseline alignment */
 }
 
 .unit {
   font-size: 0.25cm;
-  margin-top: 1px;
   width: 100%;
   text-align: right;
-  margin-right: 5mm;
+  margin-top: 0.5mm;
+  padding-right: 2mm; /* Ensure it doesn't hit the edge */
 }
 
-/* Legacy or unused classes kept for safety if referenced dynamically or by other components sharing this file */
-.seconddatabarcode {
-  margin-top: -20px;
-  height: 1.5cm;
-}
-.barcodeWrapper {
-  position: relative;
-  top: -5px; 
-  margin-top: -5px;
+/* Ensure text doesn't overflow */
+.title2, .bath, .unit {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
