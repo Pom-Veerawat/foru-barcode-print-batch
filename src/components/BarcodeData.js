@@ -22,6 +22,15 @@ const BarcodeData = (props) => {
       className={classes.allinline}
       onClick={props.onDeleteHandler.bind(this, props.itemId)}
     >
+      <div
+        className={classes.title}
+        style={{
+          fontSize:
+            props.title && props.title.length > 31 ? "0.21cm" : undefined,
+        }}
+      >
+        {props.title}{" "}
+      </div>
       <div className={classes.topSection}>
         <div className={classes.title2}>ราคาปกติ</div>
         <div className={classes.priceRow}>
