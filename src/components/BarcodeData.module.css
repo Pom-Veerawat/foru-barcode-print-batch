@@ -7,7 +7,7 @@
   align-items: flex-start; /* Align everything to left */
   text-align: left; /* Align text to left */
   margin: 0;
-  padding: 0;
+  padding: 2mm; /* Add padding to prevent content from touching edges */
   box-sizing: border-box;
   overflow: hidden;
   background-color: white;
