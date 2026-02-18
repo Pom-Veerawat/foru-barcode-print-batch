@@ -72,6 +72,7 @@ const PrintingContent = (props) => {
           lengthItem={barcodes}
           onAddItem={onAddItem}
           branchID={props.branchId}
+          onPrint={handlePrint}
         />
       </Card>
       {/* <Card>

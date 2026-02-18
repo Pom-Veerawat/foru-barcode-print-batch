@@ -257,6 +257,7 @@ const ComponentToAdd = (props) => {
 
       <br></br>
       <button onClick={onButtonInsertHandler}>Insert</button>
+      <button onClick={props.onPrint} style={{ marginLeft: "10px" }}>Print</button>
     </div>
   );
 };
