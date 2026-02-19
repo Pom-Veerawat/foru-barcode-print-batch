@@ -87,6 +87,12 @@
   width: 100%;
 }
 
+/* Specific styling for the bottom section price row */
+.bottomSection .priceRow {
+  justify-content: flex-end;
+  padding-right: 5mm; /* Align with .unit margin */
+}
+
 .price {
   display: inline-flex;
   align-items: baseline;
